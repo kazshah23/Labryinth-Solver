@@ -39,7 +39,14 @@ My implementation was fully in C++ and utilized the cmake platform for build aut
 6. To see the output and breakdown of the code run make main && ./main  
     ```sh
    make main && ./main
-    ```    
+    ```
+
+## About my Project
+To manage maze-related data, the code employs various data structures, including vectors, queues, and maps. Notably, it utilizes a disjoint set data structure (implemented as dsets) to track connected components and ensure maze connectivity without introducing cycles during generation. To solve the maze, the code utilizes Breadth-First Search (BFS) traversal, making use of queues, visited cell tracking, cell lengths, and path storage in maps.
+
+The maze is represented as a grid of cells, with walls in four directions: up, down, left, and right, stored in the walls vector. The code also integrates functionality for generating visual representations of the maze using the cs225::PNG library. This includes setting up images, blackening specific edges to represent walls, and generating PNG images of both the maze and its solution. Importantly, when drawing the maze with a solution, the code highlights the path by changing the color of pixels along the route in the generated PNG image.
+
+While the code lacks direct input functionality for specifying maze dimensions or other parameters, it provides a modular organization within a C++ class called SquareMaze, encapsulating maze generation, solving, and drawing functions. This modular structure enhances code clarity and ease of use. The introduction of randomness through the rand() function ensures that different mazes are generated each time the program runs, adding variety to the generated mazes. Overall, these technical features collectively enable the code to efficiently create, solve, and visually represent square mazes.
 ## Conclusions
 1) To generating the maze, 
     - First created a function which takes in the length and width as parameters and intialized the maze as a grid, where each wall was set to true
